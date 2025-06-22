@@ -8,7 +8,7 @@ import TabsBar from "./components/TabsBar";
 import { useState } from "react";
 import About from "./pages/About";
 import { Route, Routes } from "react-router-dom";
-import Projects from "./pages/Projects";
+// import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Theme from "./pages/Theme";
 
@@ -54,10 +54,10 @@ function App() {
               path="/about"
               element={<About setPage={setSelectedPage} />}
             />
-            <Route
+            {/* <Route
               path="/projects"
               element={<Projects setPage={setSelectedPage} />}
-            />
+            /> */}
             <Route
               path="/contact"
               element={<Contact setPage={setSelectedPage} />}
