@@ -3,10 +3,11 @@ import React, { useRef, useEffect, useState } from "react";
 
 type Props = {
   name: string;
-  value: string;
+  value: string | number;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   placeholder: string;
+  type?: string;
 };
 
 const ContactInput = ({

@@ -7,6 +7,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Formik, Form } from "formik";
+import { FormikHelpers } from "formik";
 import { useState, useEffect } from "react";
 import { validationSchema, FormValues } from "../utils/validation";
 import { sendEmail } from "../utils/sendEmail";
@@ -33,14 +34,22 @@ const Contact = ({ setPage }: Props) => {
   const initialValues: FormValues = {
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   };
 
-  const handleSubmit = async (values: FormValues, { resetForm }: any) => {
+const handleSubmit = async (
+    values: FormValues,
+    formikHelpers: FormikHelpers<FormValues>
+  ) => {
+    const { resetForm } = formikHelpers;
     setLoading(true);
     try {
-      const result = await sendEmail(values);
+      const result = await sendEmail({
+        ...values,
+        phone: Number(values.phone),
+      });
       if (result.status === 200)
         toast({
           title: "Message Sent",

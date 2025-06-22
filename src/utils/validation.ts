@@ -1,8 +1,11 @@
+/** @format */
+
 import * as Yup from "yup";
 
 export interface FormValues {
   name: string;
   email: string;
+  phone: number | string;
   subject: string;
   message: string;
 }

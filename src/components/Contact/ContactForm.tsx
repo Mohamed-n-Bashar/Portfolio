@@ -6,11 +6,12 @@ interface Props {
   values: {
     name: string;
     email: string;
+    phone: number | string;
     subject: string;
     message: string;
   };
-  handleChange: (e: React.ChangeEvent<any>) => void;
-  handleBlur: (e: React.FocusEvent<any>) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  handleBlur: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   setMessageLines: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -38,6 +39,15 @@ const ContactForm = ({
         handleChange={handleChange}
         handleBlur={handleBlur}
         placeholder='"your.email@example.com"'
+      />
+
+      <ContactInput
+        name="phone"
+        value={values.phone}
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+        placeholder='"Your phone number"'
+        type="number"
       />
 
       <ContactInput

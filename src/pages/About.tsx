@@ -29,7 +29,6 @@ const About = ({ setPage }: Props) => {
     setLoading(true);
     const link = document.createElement("a");
     link.href = aboutMe.cvPath;
-    link.setAttribute("download", aboutMe.cvFileNameAfterDownload);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

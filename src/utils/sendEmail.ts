@@ -10,14 +10,16 @@ const PUBLIC_KEY = "kQgVspUKSCsHbKi7d"; // aka USER_ID
 export const sendEmail = async (values: {
   name: string;
   email: string;
+  phone: number | string;
   subject: string;
   message: string;
 }) => {
-  const { name, email, subject, message } = values;
+  const { name, email, phone, subject, message } = values;
 
   const templateParams = {
-    from_name: name,
-    from_email: email,
+    name: name,
+    email: email,
+    phone: phone,
     subject: subject,
     message: message,
   };
